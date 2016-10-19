@@ -111,9 +111,9 @@
   },
   "variables": {
     "nestedTemplates": {
-      "omsRecoveryServices": "[concat(parameters('_artifactsLocation'), '/nestedtemplates/omsRecoveryServices.json', parameters('_artifactsLocationSasToken'))]",
-      "omsAutomation": "[concat(parameters('_artifactsLocation'), '/nestedtemplates/omsAutomation.json', parameters('_artifactsLocationSasToken'))]",
-      "omsWorkspace": "[concat(parameters('_artifactsLocation'), '/nestedtemplates/omsWorkspace.json', parameters('_artifactsLocationSasToken'))]"
+      "omsRecoveryServices": "[concat(parameters('_artifactsLocation'), '/nestedtemplates/omsrecoveryservices.json', parameters('_artifactsLocationSasToken'))]",
+      "omsAutomation": "[concat(parameters('_artifactsLocation'), '/nestedtemplates/omsautomation.json', parameters('_artifactsLocationSasToken'))]",
+      "omsWorkspace": "[concat(parameters('_artifactsLocation'), '/nestedtemplates/omsworkspace.json', parameters('_artifactsLocationSasToken'))]"
     }
   },
   "resources": [
