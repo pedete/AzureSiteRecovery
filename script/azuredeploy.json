@@ -147,7 +147,7 @@
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "uri": "[variables('nestedTemplates').omsASR]",
+          "uri": "[variables('nestedTemplates').omsRecoveryServices]",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
@@ -165,7 +165,7 @@
       "apiVersion": "2016-02-01",
       "name": "omsAutomation",
       "dependsOn": [
-        "[concat('Microsoft.Resources/deployments/', 'omsASR')]",
+        "[concat('Microsoft.Resources/deployments/', 'omsRecoveryServices')]",
         "[concat('Microsoft.Resources/deployments/', 'omsWorkspace')]"
       ],
       "properties": {
