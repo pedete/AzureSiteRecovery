@@ -4,9 +4,9 @@
   "parameters": {
     "omsRecoveryVaultName": {
       "type": "string",
-      "defaultValue": "OMSRecovery",
+      "defaultValue": "ASRRecovery",
       "metadata": {
-        "description": "Assign a name for the ASR Recovery Vault"
+        "description": "Provide a name for the ASR Recovery Vault"
       }
     },
     "omsRecoveryVaultRegion": {
@@ -32,14 +32,14 @@
         "South India"
       ],
       "metadata": {
-        "description": "Specify the region for your Recovery Vault"
+        "description": "Specify the region for your ASR Recovery Vault"
       }
     },
     "omsWorkspaceName": {
       "type": "string",
-      "defaultValue": "OMSLA",
+      "defaultValue": "OMSWorkSpace",
       "metadata": {
-        "description": "Assign a name for the Log Analytic Workspace Name"
+        "description": "Provide a name for the OMS Workspace"
       }
     },
     "omsWorkspaceRegion": {
@@ -57,9 +57,9 @@
     },
     "omsAutomationAccountName": {
       "type": "string",
-      "defaultValue": "OMSAutomation",
+      "defaultValue": "AzureAutomation",
       "metadata": {
-        "description": "Assign a name for the Automation account"
+        "description": "Assign a username for the Azure Automation account"
       }
     },
     "omsAutomationRegion": {
@@ -78,12 +78,12 @@
         "Japan East"
       ],
       "metadata": {
-        "description": "Specify the region for your Automation account"
+        "description": "Specify the region for your Azure Automation account"
       }
     },
     "_artifactsLocation": {
       "type": "string",
-      "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/oms-all-deploy",
+      "defaultValue": "https://raw.githubusercontent.com/pedete/AzureSiteRecovery/master",
       "metadata": {
         "description": "The base URI where artifacts required by this template are located"
       }
@@ -105,15 +105,15 @@
     "azureAdminPwd": {
       "type": "securestring",
       "metadata": {
-        "description": "Enter the pwd for the service admin user. The pwd is enrypted during runtime and in the Automation assets"
+        "description": "Enter the password for the service admin user. The pwd is enrypted during runtime and in the Automation assets"
       }
     }
   },
   "variables": {
     "nestedTemplates": {
-      "omsRecoveryServices": "[concat(parameters('_artifactsLocation'), '/nestedtemplates/omsrecoveryservices.json', parameters('_artifactsLocationSasToken'))]",
-      "omsAutomation": "[concat(parameters('_artifactsLocation'), '/nestedtemplates/omsautomation.json', parameters('_artifactsLocationSasToken'))]",
-      "omsWorkspace": "[concat(parameters('_artifactsLocation'), '/nestedtemplates/omsworkspace.json', parameters('_artifactsLocationSasToken'))]"
+      "omsRecoveryServices": "[concat(parameters('_artifactsLocation'), '/nestedtemplates/omsASR.json', parameters('_artifactsLocationSasToken'))]",
+      "omsAutomation": "[concat(parameters('_artifactsLocation'), '/nestedtemplates/omsAutomation.json', parameters('_artifactsLocationSasToken'))]",
+      "omsWorkspace": "[concat(parameters('_artifactsLocation'), '/nestedtemplates/omsWorkspace.json', parameters('_artifactsLocationSasToken'))]"
     }
   },
   "resources": [
@@ -122,7 +122,7 @@
       "apiVersion": "2016-02-01",
       "name": "omsWorkspace",
       "dependsOn": [
-        "[concat('Microsoft.Resources/deployments/', 'omsRecoveryServices')]"
+        "[concat('Microsoft.Resources/deployments/', 'ASRRecovery')]"
       ],
       "properties": {
         "mode": "Incremental",
@@ -147,7 +147,7 @@
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "uri": "[variables('nestedTemplates').omsRecoveryServices]",
+          "uri": "[variables('nestedTemplates').omsASR]",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
@@ -165,7 +165,7 @@
       "apiVersion": "2016-02-01",
       "name": "omsAutomation",
       "dependsOn": [
-        "[concat('Microsoft.Resources/deployments/', 'omsRecoveryServices')]",
+        "[concat('Microsoft.Resources/deployments/', 'omsASR')]",
         "[concat('Microsoft.Resources/deployments/', 'omsWorkspace')]"
       ],
       "properties": {

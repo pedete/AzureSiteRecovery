@@ -4,9 +4,9 @@
   "parameters": {
     "omsWorkspaceName": {
       "type": "string",
-      "defaultValue": "OMSLA",
+      "defaultValue": "OMSWorkSpace",
       "metadata": {
-        "description": "Assign a name for the Log Analytic Workspace Name"
+        "description": "Assign a name for the OMS Workspace Name"
       }
     },
     "omsWorkspaceRegion": {
@@ -19,7 +19,7 @@
         "Australia Southeast"
       ],
       "metadata": {
-        "description": "Specify the region for your Workspace"
+        "description": "Specify the region for your OMS Workspace"
       }
     }
   },

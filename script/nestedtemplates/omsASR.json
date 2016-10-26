@@ -4,7 +4,7 @@
   "parameters": {
     "omsRecoveryVaultName": {
       "type": "string",
-      "defaultValue": "OMSRecovery",
+      "defaultValue": "ASRRecovery",
       "metadata": {
         "description": "Assign a name for the ASR Recovery Vault"
       }
@@ -32,7 +32,7 @@
         "South India"
       ],
       "metadata": {
-        "description": "Specify the region for your Recovery Vault"
+        "description": "Specify the region for your ASR Recovery Vault"
       }
     }
   },
