@@ -57,7 +57,7 @@
     },
     "_artifactsLocation": {
       "type": "string",
-      "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/oms-all-deploy",
+      "defaultValue": "https://raw.githubusercontent.com/pedete/AzureSiteRecovery/master/script",
       "metadata": {
         "description": "The base URI where artifacts required by this template are located"
       }
@@ -393,9 +393,6 @@
               }
             }
           },
-<<<<<<< HEAD
-          
-=======
           {
             "name": "[variables('runbooks').omsABUscript.name]",
             "type": "runbooks",
@@ -431,7 +428,6 @@
           }
           ]
         }
->>>>>>> parent of 4ce54bf... removed backup
       ],
   "outputs": { }
 }
